@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+  name: test-gactions
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: test-gactions
+  template:
+    metadata:
+      labels:
+        name: test-gactions
+    spec:
+      containers:
+      - name: test-gactions
+        image: juliocsg/test-gactions
+        ports:
+        - containerPort: 80
+          name: http
